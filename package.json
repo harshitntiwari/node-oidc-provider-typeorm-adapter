@@ -1,0 +1,33 @@
+{
+  "name": "oidc-provider-typeorm-adapter",
+  "version": "1.0.0",
+  "description": "node oidc-provider adapter implementation in typeorm",
+  "main": "app.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/app.js",
+    "dev": "npm run build && npm start",
+    "typeorm": "typeorm-ts-node-esm",
+    "migrate:create": "npm run typeorm migration:create ./migrations/$NAME",
+    "migrate:generate": "npm run typeorm migration:generate -- -d ./dist/datasource.js ./migrations/$NAME",
+    "migrate:run": "npm run build && npm run typeorm migration:run -- -d ./dist/datasource.js",
+    "migrate:revert": "npm run typeorm migration:revert -- -d ./dist/datasource.js"
+  },
+  "keywords": [],
+  "author": "Harshit Tiwari",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "oidc-provider": "^9.5.1",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.26"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/oidc-provider": "^9.1.2",
+    "ts-node": "^10.9.2"
+  }
+}
